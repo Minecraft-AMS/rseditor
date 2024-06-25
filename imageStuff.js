@@ -167,7 +167,11 @@ const blockNames = [
     'ice',
 
     //crafter
-    'crafter'
+    'crafter',
+
+    //copper_bulb
+    'copper_bulb',
+    'copper_bulb_lit'
 ]
 
 //probably shouldve used a spritesheet xd
