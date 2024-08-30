@@ -1,4 +1,5 @@
 const imageMap = new Map();
+const blockNames = []
 const normalBlockName = [
     //arail
     'arail',
@@ -23,6 +24,7 @@ const normalBlockName = [
     'slabt',
     'slimeblock',
     'smoothstone',
+    'quartzblock',
     'soulsand',
     'unknown',
 
@@ -58,11 +60,13 @@ const normalBlockName = [
     'copper_bulb_lit'
 ]
 const statedBlockName = [
-    //comparator
-    'comparatorloff', 
-    'comparatorlon',
-    'comparatorroff', 
-    'comparatorron',
+    //repeater
+    'repeaterloff', 
+    'repeaterlon',
+    'repeaterroff',
+    'repeaterron',
+    'repeaterfoff',
+    'repeaterfon',
 
     //dropper
     'dropperd',
@@ -76,54 +80,38 @@ const statedBlockName = [
     'dispenserr',
     'dispenseru',
 
+    //chest
+    'chestdl',
+    'chestdr',
+    'chest',
+
+    //comparator
+    'comparatorloff', 
+    'comparatorlon',
+    'comparatorroff', 
+    'comparatorron',
+
+
     //hopper
     'hopperb',
+    'hopperf',
     'hopperd',
     'hopperl',
     'hopperr',
 
-    //shulkerbox
-    'shulkerboxd',
-    'shulkerboxl',
-    'shulkerboxr',
-    'shulkerboxu',
+    //hopper_on
+    'hopper_onb',
+    'hopper_onf',
+    'hopper_ond',
+    'hopper_onl',
+    'hopper_onr',
 
-    //repeater
-    'repeaterloff', 
-    'repeaterlon',
-    'repeaterroff',
-    'repeaterron',
-    'repeaterfoff',
-    'repeaterfon',
-
-    //chest
-    'chest',
-    'chestdl',
-    'chestdr',
+    //prail
+    'prail',
 
     //dust
     'dustoff',
     'duston',
-
-    //fencegate
-    'fencegatec',
-    'fencegateo',
-
-    //lamp
-    'lampoff', 
-    'lampon', 
-
-    //observer
-    'observerb',
-    'observerd',
-    'observerl',
-    'observerr',
-    'observeru',
-
-    //prail
-    'prail',
-    'prailsl',
-    'prailsr',
 
     //piston
     'pistonb',
@@ -138,18 +126,46 @@ const statedBlockName = [
     'stickypistonl', 
     'stickypistonr', 
     'stickypistonu',
+
+
+    //rail
+    'prailsl',
+    'prailsr',
+
+    //fencegate
+    'fencegatec',
+    'fencegateo',
+    
+    //piston head&body
     'pistonheadd', 
     'pistonheadl', 
     'pistonheadr', 
     'pistonheadu', 
-    'stickypistonheadd',
-    'stickypistonheadl',
-    'stickypistonheadr',
-    'stickypistonheadu',
     'pistonbodyd',
     'pistonbodyl',
     'pistonbodyr',
     'pistonbodyu',
+    'stickypistonheadd',
+    'stickypistonheadl',
+    'stickypistonheadr',
+    'stickypistonheadu',
+
+    //lamp
+    'lampoff', 
+    'lampon', 
+
+    //observer
+    'observerb',
+    'observerd',
+    'observerl',
+    'observerr',
+    'observeru',
+
+    //shulkerbox
+    'shulkerboxd',
+    'shulkerboxl',
+    'shulkerboxr',
+    'shulkerboxu',
 
     //torch
     'torchoff',
@@ -179,18 +195,15 @@ const statedBlockName = [
     'stairur',
     'stairdr',
 ]
-
-blockNames = []
 //probably shouldve used a spritesheet xd
 
-const row_size = 20
-const left_size = 4
+const row_size = 22
+const left_size = 6
 const right_size = 16
 
 function imageInit() {
-    for (let i = 0; i < Math.max(Math.ceil(normalBlockName.length/left_size) + Math.ceil(statedBlockName.length/right_size)) * row_size; i++) {
+    for (let i = 0; i < Math.max(Math.ceil(normalBlockName.length/left_size), Math.ceil(statedBlockName.length/right_size)) * row_size; i++) {
         if (i % row_size < left_size) {
-            console.log(left_size * Math.floor(i/row_size) + i % row_size)
             if (left_size * Math.floor(i/row_size) + i % row_size < normalBlockName.length) {
                 blockNames.push(normalBlockName[left_size * Math.floor(i/row_size) + i % row_size]);
             }
@@ -198,7 +211,7 @@ function imageInit() {
                 blockNames.push("air")
             }
         } else {
-            console.log(right_size * Math.floor(i/row_size) + i % row_size - left_size)
+            // console.log(right_size * Math.floor(i/row_size) + i % row_size - left_size)
             if (right_size * Math.floor(i/row_size) + i % row_size - left_size < statedBlockName.length) {
                 blockNames.push(statedBlockName[right_size * Math.floor(i/row_size) + i % row_size - left_size]);
             }

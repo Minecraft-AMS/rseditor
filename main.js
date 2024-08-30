@@ -10,8 +10,8 @@ let gridContentsCompressed = [];
 let gridContentsFromUrl = [];
 
 //graph constants
-let graphDimx = 812;
-let graphDimy = 841;
+let graphDimx = 892;
+let graphDimy = 881;
 let graphGridThing = graphDimy - 240;
 
 //rounded coords
@@ -110,9 +110,9 @@ function urlUpdate() {
 
 function gridBorders() {
   line(xGraph, 0, xGraph, graphDimy - 20);
-  line(xGraph + 810, 0, xGraph + 810, graphDimy - 20);
+  line(xGraph + 890, 0, xGraph + 890, graphDimy - 20);
   line(0, yGraph, graphDimy, yGraph);
-  line(0, graphGridThing - 30, graphDimx - 2, graphGridThing - 30);
+  // line(0, graphGridThing - 30, graphDimx - 2, graphGridThing - 30);
 }
 
 function gridItself() {
@@ -141,7 +141,7 @@ function gridContentsManage() {
     image(imageMap.get(gridContents[i]), ((i + 27) % 27 * 30) + 0.56, (floor(i/27) * 30) + 0.56, 30, 30);
   }
 
-  console.log(gridContents);
+  // console.log(gridContents);
 }
 
 //selection panel stuff
@@ -150,10 +150,10 @@ function selectionPanelImages() {
   let selectionPanelX = 10
   let selectionPanelY = graphGridThing - 20;
 
-  for (const blockNames of imageMap.keys()) {
-    image(imageMap.get(blockNames), selectionPanelX, selectionPanelY, 30, 30);
+  for (const blockName of blockNames) {
+    image(imageMap.get(blockName), selectionPanelX, selectionPanelY, 30, 30);
     selectionPanelX = selectionPanelX + 40;
-    if (selectionPanelX >= 790) {
+    if (selectionPanelX >= 790 + 80) {
       selectionPanelY = selectionPanelY + 40;
       selectionPanelX = 10;
     }
@@ -168,11 +168,12 @@ function selectionPanelSelectionIndicator() {
   
   fill(80,84,92);
   rect((selectionPanelImageX * 40) + 6, (selectionPanelImageY * 40) + 17, 38, 38, 5);
-  selectionPanelImageOrder = ((selectionPanelImageY - 14) * 20) + selectionPanelImageX;
+  selectionPanelImageOrder = ((selectionPanelImageY - 15) * 22) + selectionPanelImageX;
   selectedImg = imageMap.get(blockNames[selectionPanelImageOrder]);
 }
 
 function selectionPanelRectangle() {
   fill(54, 57, 62);
   rect(0.6, graphGridThing - 30, graphDimx - xGraph - 1, graphDimy - graphGridThing + 10);
+  rect(0.6, graphGridThing - 30, 0.6 + 5 + 240, graphDimy - graphGridThing + 10);
 }
