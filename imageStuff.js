@@ -70,6 +70,12 @@ const statedBlockName = [
     'dropperr',
     'dropperu',
 
+    //dispenser
+    'dispenserd',
+    'dispenserl',
+    'dispenserr',
+    'dispenseru',
+
     //hopper
     'hopperb',
     'hopperd',
