@@ -1,10 +1,12 @@
 const imageMap = new Map();
 const blockNames = []
 const normalBlockName = [
-    //arail
-    'arail',
-    'arailsl',
-    'arailsr',
+    'slimeblock',
+    'honeyblock',
+
+    //copper_bulb
+    'copper_bulb',
+    'copper_bulb_lit',
 
     //barrel
     'barrel',
@@ -14,7 +16,6 @@ const normalBlockName = [
     'glasst',
     'glassw',
     'glazedterracotta',
-    'honeyblock',
     'ironblock', 
     'noteblock', 
     'obsidian', 
@@ -22,7 +23,6 @@ const normalBlockName = [
     'sand', 
     'scaffolding',
     'slabt',
-    'slimeblock',
     'smoothstone',
     'quartzblock',
     'soulsand',
@@ -54,10 +54,6 @@ const normalBlockName = [
 
     //crafter
     'crafter',
-
-    //copper_bulb
-    'copper_bulb',
-    'copper_bulb_lit'
 ]
 const statedBlockName = [
     //repeater
